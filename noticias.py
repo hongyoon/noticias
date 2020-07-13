@@ -18,7 +18,6 @@ class NewsCrawler():
     def __init__(self):
         self.base_url = config.BASE_URL
         self.logger = logging.getLogger(__name__)
-        
 
     def getNewsUrls(self): # get news url
         req = requests.get(self.base_url)
@@ -53,18 +52,21 @@ class NewsCrawler():
 
         return {'url':url, 'date':date, 'text': text}
 
-    def getPreviousUrls(self):
+    def getDfPreviousUrls(self):
         df_url = pd.read_csv(config.PATH_DB_URL, sep='\t', index_col=None)
-        return set(df_url['url'])
+        return df_url 
+        
 
     def getListNewsData(self):
+        # print list news data; update db_url
         newsData = []
         urls = self.getNewsUrls()
         today = date.today()
         
         # ha venido antes?
-        previous_url = self.getPreviousUrls()
-        target_urls = list(filter(lambda x: x not in previous_url, urls))
+        df_previous_urls = self.getDfPreviousUrls()
+        previous_urls = set(df_previous_urls['url'])
+        target_urls = list(filter(lambda x: x not in previous_urls, urls))
 
         listNewsData = []
         logging.warning(target_urls)
@@ -77,6 +79,15 @@ class NewsCrawler():
                 ################## REMOVE THIS IN PRODUCTION
                 if len(listNewsData) == 2:
                     break
+        
+        
+        temp = []
+        for newsData in listNewsData:
+            temp.append({'url':newsData['url'], 'crawl_date':today.strftime('%Y-%m-%d')})
+
+        df_temp = pd.DataFrame(temp)
+        df_merged = df_previous_urls.append(df_temp)
+        df_merged.to_csv(config.PATH_DB_URL, sep='\t', index=False)
 
         return listNewsData
 
@@ -85,7 +96,8 @@ class WordDistiller():
     # 1. tokenize
     # 2. process new words
     # 3. remove cognate
-    # 4. tf-idf 
+    # 4. find interesting words
+    # 5. update interesting words 
 
     def __init__(self):
         self.nlp = spacy.load('es_core_news_sm')
@@ -126,7 +138,6 @@ class WordDistiller():
         if len(self.newWords) > 0:
             # update df_words
             df_newWords = self.getDfNewWords()
-            
             df_merged = df_words.append(df_newWords)
 
             ### update the master db "DB_WORD"
@@ -257,6 +268,12 @@ class WordDistiller():
         return pipe
 
 
+# class AnkiPackager(object):
+    # 1. create apkg
+    # 2. update interesting word db
+
+
+
 # initialize google credential
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = config_google.PATH_CREDENTIAL
 os.environ['PROJECT_ID'] = config_google.PROJECT_ID
@@ -265,24 +282,24 @@ os.environ['PROJECT_ID'] = config_google.PROJECT_ID
 locale.setlocale(locale.LC_TIME, config.LOCALE_ES)
 
 # crawling
-#nc = NewsCrawler()
-#listNewsData = nc.getListNewsData()
-#del nc
+nc = NewsCrawler()
+listNewsData = nc.getListNewsData()
+del nc
 
 # with open('newsData.pk','wb') as f:
 #     pickle.dump(listNewsData,f)
 
 
 
-with open('newsData.pk','rb') as f:
-    listNewsData = pickle.load(f)
+# with open('newsData.pk','rb') as f:
+#     listNewsData = pickle.load(f)
 
 # distilling interesting words
-wd = WordDistiller()
-wd.getInterestingWords([listNewsData[0],listNewsData[1]])
+# wd = WordDistiller()
+# wd.getInterestingWords([listNewsData[0],listNewsData[1]])
 
-print(wd.interestingWords)
-print(wd.newWords)
+# print(wd.interestingWords)
+# print(wd.newWords)
 
 
 
