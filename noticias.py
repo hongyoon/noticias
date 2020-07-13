@@ -1,4 +1,4 @@
-import requests, time, locale, spacy, logging, string, os, textdistance
+import requests, time, locale, spacy, logging, string, os, textdistance, pickle
 
 import numpy as np
 import pandas as pd
@@ -121,38 +121,45 @@ class WordDistiller():
         self.updateWordDict()
         logging.warning("length of word dict is {}".format(len(self.wordDict)))
 
+        df_words = pd.read_csv(config.PATH_DB_WORD, sep='\t', index_col=None)
         # get df_newWord
         if len(self.newWords) > 0:
             # update df_words
             df_newWords = self.getDfNewWords()
-            df_word = pd.read_csv(config.PATH_DB_WORD, sep='\t', index_col=None)
-            df_merged = df_word.append(df_newWords)
+            
+            df_merged = df_words.append(df_newWords)
+
+            ### update the master db "DB_WORD"
             df_merged.to_csv(config.PATH_DB_WORD, sep='\t', index=False)
         else: # if no new word (eventually it will happen)
-            df_newWords = df_word
+            df_newWords = df_words
 
         # get cognate
-        scores= df_word.score
+        logging.warning("getting cognate")
+
+        scores= df_words.score
         cognate_threshold = np.percentile(scores,config.COGNATE_PERCENTILE)
         cognates = df_newWords.loc[df_newWords['score'] >= cognate_threshold]['src'].values
+        logging.warning(len(cognates))
 
         # creating tf idf pipeline
+        logging.warning("making tf-idf")
         corpus = [' '.join(token) for token in self.listTokens]
-        pipe = self.get_tf_idf_pipeline(stop_words= cognates, corpus=corpus, new_word_only = config.NEW_WORD_ONLY)
+        pipe = self.get_tf_idf_pipeline(stop_words= cognates, corpus=corpus, new_words_only = config.NEW_WORDS_ONLY)
 
-        feature_names = np.array(pipe['count'].get_feature_name())
+        feature_names = np.array(pipe['count'].get_feature_names())
         tf_idf_vector=pipe['tfidf'].transform(pipe['count'].transform(corpus))
 
+
+        # get interesting words
         num_row, _ = tf_idf_vector.shape
 
         for idx in range(num_row):
             arr = tf_idf_vector.getrow(idx).toarray()
-            idxs = arr[0].argsort()[-20:][::-1]
+            idxs = arr[0].argsort()[-config.NUM_INTERESTING_WORDS:][::-1]
             self.interestingWords.update(set(feature_names[idxs]))
-    
 
-
-
+    ### 1. let's tokenize ###
     def is_valid_token(self,token):
         if token.text.isdigit():
             return False
@@ -196,6 +203,8 @@ class WordDistiller():
             self.listTokens.append(tokens)
             self.vocab.update(set(tokens))
 
+    ### 2. Process new words ###
+
     def getWordDict(self):
         df_word = pd.read_csv(config.PATH_DB_WORD, sep='\t', index_col=None)
         return dict(zip(list(df_word['src']),list(df_word['tran'])))
@@ -238,14 +247,13 @@ class WordDistiller():
         df_newWords = pd.DataFrame(listDict)
         return df_newWords
 
-    def get_tf_idf_pipeline(self, stop_words = None, corpus = None, new_word_only=False):
-        if new_word_only:
-            new_old_word = list(self.wordDict.keys())
-            old_word = list(filter(lambda x: x not in self.newWords, new_old_word))
+    def get_tf_idf_pipeline(self, stop_words = None, corpus = None, new_words_only=False):
+        if new_words_only:
+            df_previous_words = pd.read_csv(config.PATH_DB_INTERESTING_WORD, sep='\t', index_col=None)
+            old_words = df_previous_words['src'].values
+            stop_words = np.concatenate([stop_words,old_words])
 
-        stop_words = stop_words + old_word
-
-        pipe = Pipeline([('count', CountVectorizer(stop_words=stop_words)),('tfidf', TfidfTransformer(smooth_idf=True,use_idf=True))]).fit(corpus)
+        pipe = Pipeline([('count', CountVectorizer(stop_words=list(stop_words))),('tfidf', TfidfTransformer(smooth_idf=True,use_idf=True))]).fit(corpus)
         return pipe
 
 
@@ -257,9 +265,17 @@ os.environ['PROJECT_ID'] = config_google.PROJECT_ID
 locale.setlocale(locale.LC_TIME, config.LOCALE_ES)
 
 # crawling
-nc = NewsCrawler()
-listNewsData = nc.getListNewsData()
-del nc
+#nc = NewsCrawler()
+#listNewsData = nc.getListNewsData()
+#del nc
+
+# with open('newsData.pk','wb') as f:
+#     pickle.dump(listNewsData,f)
+
+
+
+with open('newsData.pk','rb') as f:
+    listNewsData = pickle.load(f)
 
 # distilling interesting words
 wd = WordDistiller()

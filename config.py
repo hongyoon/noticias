@@ -6,6 +6,7 @@ LOCALE_ES = "es_ES"
 PATH_DB_MASTER =  "data\\db_master.tsv"
 PATH_DB_URL = "data\\db_url.tsv"
 PATH_DB_WORD = "data\\db_word.tsv"
+PATH_DB_INTERESTING_WORD = "data\\db_interesting_word.tsv"
 
 ### preprocessor
 STOP_SENTENCES = set([
@@ -18,7 +19,10 @@ STOP_SENTENCES = set([
 STOP_WORDS = set(get_stop_words('es'))
 STOP_POS = set(['PROPN','SYM','SPACE','PUNCT','NUM'])
 
-COGNATE_PERCENTILE = 0.95
+COGNATE_PERCENTILE = 95
 
 ### preference
-NEW_WORD_ONLY = True
+NEW_WORDS_ONLY = True
+
+### Number of interesting words per article
+NUM_INTERESTING_WORDS = 10
