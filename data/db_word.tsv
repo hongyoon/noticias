@@ -254,7 +254,7 @@ mensaje	message	0.8476190476190477
 absolutamente	absolutely	0.8830769230769232
 surgir	arise	0.5777777777777778
 mucho	much	0.96
-autoaislaran	self-insulate	0.467094017094017
+autoaislaran	self-insulate	0.46709401709401704
 estando	being	0.5619047619047619
 cercano	near	0.6150793650793651
 cultivo	culture	0.8285714285714286
@@ -291,7 +291,7 @@ remedio	remedy	0.9095238095238096
 hermanas	sisters	0.6011904761904762
 afectando	affecting	0.8222222222222222
 trasladar	move	0.0
-multimillonario	multimillionaire	0.9330952380952379
+multimillonario	multimillionaire	0.933095238095238
 total	total	1.0
 académico	academic	0.9305555555555556
 preparadas	prepared	0.915
@@ -365,7 +365,7 @@ difundida	spread	0.4259259259259258
 próxima	next	0.4642857142857142
 movilización	mobilization	0.8666666666666667
 químicas	chemical	0.6666666666666666
-conocidas	known	0.374074074074074
+conocidas	known	0.37407407407407395
 envoltura	envelope	0.6601851851851852
 entregar	deliver	0.4900793650793651
 continuarán	will continue	0.6297036297036297
@@ -453,7 +453,7 @@ medir	to size	0.4476190476190476
 debatía	debated	0.8857142857142858
 víctimas	victims	0.8321428571428573
 índices	indices	0.9047619047619048
-conversamos	we talked	0.468013468013468
+conversamos	we talked	0.46801346801346794
 secuestradores	kidnappers	0.4785714285714287
 documentar	keep record	0.4606060606060607
 ejecución	execution	0.7999999999999999
@@ -919,7 +919,7 @@ mostraban	showed	0.35185185185185186
 enfermero	nurse	0.5333333333333333
 tales	such	0.0
 culinaria	culinary	0.9305555555555556
-seguirlos	follow them	0.468013468013468
+seguirlos	follow them	0.46801346801346794
 emprender	undertake	0.5555555555555555
 triste	sad	0.0
 bajó	low	0.0
@@ -1147,7 +1147,7 @@ resolución	resolution	0.92
 aproximación	approach	0.8
 eléctricas	electrical	0.8933333333333333
 príncipe	the prince	0.7277777777777779
-cristal	crystal	0.9238095238095241
+cristal	crystal	0.923809523809524
 permiso	Excuse me	0.4179894179894179
 prisa	rush	0.6333333333333333
 nº	no.	0.6111111111111109
@@ -1352,7 +1352,7 @@ piensan	think	0.5619047619047619
 producir	produce	0.9214285714285716
 evidente	evident	0.975
 aceptar	to accept	0.5026455026455027
-descargar	to download	0.468013468013468
+descargar	to download	0.46801346801346794
 frescos	fresh	0.8742857142857143
 madres	mothers	0.6626984126984127
 farmacéutica	pharmaceutical	0.8492063492063492
@@ -1448,7 +1448,7 @@ aterrador	scary	0.5407407407407407
 impresiones	impressions	0.9236363636363636
 tardes	afternoons	0.6444444444444445
 visión	vision	0.9333333333333332
-estrategias	strategies	0.9060606060606059
+estrategias	strategies	0.906060606060606
 ligado	bound	0.4555555555555555
 llamamos	we call	0.4226190476190477
 reales	real	0.9333333333333332
@@ -1472,7 +1472,7 @@ paradero	whereabouts	0.537878787878788
 comenzaron	they started	0.5166666666666667
 relacionadas	related	0.8261904761904763
 viaja	travels	0.4476190476190476
-repetimos	we repeat	0.462962962962963
+repetimos	we repeat	0.46296296296296297
 tiene	have	0.4833333333333334
 atendió	attended	0.8238095238095238
 fundamental	fundamental	1.0
@@ -1755,7 +1755,7 @@ llamé	I called	0.3833333333333333
 reiniciar	restart	0.671957671957672
 financiada	financed	0.915
 reemplazo	replacement	0.7675805675805676
-revela	reveals	0.9380952380952379
+revela	reveals	0.938095238095238
 consumir	consume	0.9214285714285716
 corriendo	running	0.4761904761904761
 rodean	surround	0.625
@@ -2144,7 +2144,7 @@ hipótesis	hypothesis	0.8433333333333334
 revisión	review	0.8333333333333334
 cuidados	care	0.5833333333333334
 difundió	spread	0.4305555555555556
-significará	will mean	0.468013468013468
+significará	will mean	0.46801346801346794
 prestan	lend	0.4642857142857142
 virus	virus	1.0
 emitidos	cast	0.4583333333333333
@@ -2251,7 +2251,7 @@ consejo	advice	0.4365079365079365
 riqueza	wealth	0.0
 horripilantes	creepy	0.4957264957264957
 quienes	Who	0.0
-estructuras	structures	0.9060606060606059
+estructuras	structures	0.906060606060606
 voló	He flew	0.4642857142857142
 célula	cell	0.775
 brutalidad	brutality	0.8955555555555555
@@ -2446,7 +2446,7 @@ acostumbrado	used	0.3888888888888888
 producidos	produced	0.915
 apariencias	appearances	0.8141414141414142
 comiendopescado	eating fish	0.4601010101010101
-preocupen	worry	0.374074074074074
+preocupen	worry	0.37407407407407395
 letal	lethal	0.9611111111111112
 agotando	exhausting	0.5583333333333333
 cuerpo	Body	0.0
@@ -2510,7 +2510,7 @@ depresión	depression	0.9377777777777778
 aplicara	will apply	0.4472222222222222
 escombros	debris	0.7037037037037037
 recurran	turn	0.4166666666666667
-maravillosa	wonderful	0.468013468013468
+maravillosa	wonderful	0.46801346801346794
 cronológico	chronological	0.8434965034965035
 comestible	edible	0.7777777777777778
 difusión	diffusion	0.9189814814814814
@@ -2978,7 +2978,7 @@ usan	they use	0.0
 cocina	kitchen	0.5317460317460317
 sienta	feel	0.4722222222222221
 golpee	hit	0.0
-epidemiólogo	epidemiologist	0.9041125541125541
+epidemiólogo	epidemiologist	0.904112554112554
 colorida	colorful	0.85
 abandonados	abandoned	0.9232323232323232
 malos	bad	0.5111111111111111
@@ -3034,7 +3034,7 @@ sentidos	senses	0.8055555555555556
 caviar	caviar	1.0
 filtran	filter	0.9095238095238096
 fascinada	fascinated	0.9377777777777778
-coronel	colonel	0.9238095238095241
+coronel	colonel	0.923809523809524
 olvidados	forgotten	0.4814814814814814
 caminaba	walked	0.4305555555555556
 doméstico	domestic	0.9189814814814814
@@ -3259,7 +3259,7 @@ denso	dense	0.92
 abandono	abandonment	0.9022727272727272
 necesitan	they need	0.4444444444444444
 región	region	0.9333333333333332
-mundiales	world	0.374074074074074
+mundiales	world	0.37407407407407395
 externo	external	0.9214285714285716
 recopilación	compilation	0.797979797979798
 compromiso	commitment	0.6666666666666666
@@ -3499,7 +3499,7 @@ maquinaria	machinery	0.6851851851851851
 redescubrir	rediscover	0.8006060606060607
 respirar	breathe	0.6011904761904762
 destrozado	mangled	0.4952380952380953
-comercialización	commercialization	0.929656862745098
+comercialización	commercialization	0.9296568627450981
 provocar	to provoke	0.5750000000000001
 valorar	assess	0.4365079365079365
 como	how	0.5277777777777778
@@ -3651,7 +3651,7 @@ suspenso	suspense	0.95
 recluida	secluded	0.75
 brasileña	Brazilian	0.7037037037037037
 suerte	luck	0.4722222222222221
-presenció	witnessed	0.462962962962963
+presenció	witnessed	0.46296296296296297
 gafas	glasses	0.6761904761904761
 orgullosa	proud	0.5333333333333333
 presenta	presents	0.95
@@ -3707,7 +3707,7 @@ ciertamente	certainly	0.7385281385281386
 respondía	answered	0.4583333333333333
 temores	fears	0.6761904761904761
 castigo	punishment	0.3285714285714285
-señalando	pointing out	0.462962962962963
+señalando	pointing out	0.46296296296296297
 así	So	0.0
 llevó	I wear	0.4555555555555555
 ciclón	cyclone	0.7714285714285715
@@ -3780,7 +3780,7 @@ desinformación	disinformation	0.8441558441558441
 zoonótico	zoonotic	0.9305555555555556
 produjeron	produced	0.87
 recién	newly	0.4555555555555555
-cebiche	ceviche	0.9238095238095241
+cebiche	ceviche	0.923809523809524
 cuentan	count	0.8114285714285714
 lote	lot	0.9166666666666666
 finanzas	finance	0.8678571428571429
@@ -3845,7 +3845,7 @@ positiva	positive	0.95
 acaba	just	0.0
 calor	hot	0.0
 dispersión	dispersion	0.96
-bocadillo	snack	0.374074074074074
+bocadillo	snack	0.37407407407407395
 utilizado	used	0.4537037037037037
 pintoresco	picturesque	0.7721212121212122
 rápida	fast	0.0
@@ -3943,7 +3943,7 @@ marcado	marked	0.8222222222222222
 nave	ship	0.0
 sostienen	they hold	0.4814814814814814
 interés	interest	0.9214285714285716
-maravilloso	wonderful	0.468013468013468
+maravilloso	wonderful	0.46801346801346794
 parecer	seem	0.4642857142857142
 creación	creation	0.9
 exastronauta	exastronaut	0.9833333333333332
@@ -4052,7 +4052,7 @@ mismas	themselves	0.6
 amplificación	amplification	0.9384615384615383
 básicamente	basically	0.5367003367003367
 anuló	canceled	0.6583333333333333
-ocuparían	would occupy	0.462962962962963
+ocuparían	would occupy	0.46296296296296297
 causas	Causes	0.7777777777777777
 imprescindibles	essential	0.4962962962962962
 7cayó	7 fell	0.4555555555555555
@@ -4343,7 +4343,7 @@ sabiduría	wisdom	0.5
 investigaciones	research	0.5888888888888889
 economía	economy	0.9214285714285716
 acusación	accusation	0.8503703703703704
-comenzaré	I will start	0.462962962962963
+comenzaré	I will start	0.46296296296296297
 evaluación	evaluation	0.92
 habitación	room	0.0
 hígado	liver	0.0
@@ -4496,7 +4496,7 @@ puerta	door	0.4722222222222221
 ideal	ideal	1.0
 tuvieron	they had	0.5
 verbena	verbena	1.0
-efectos	effects	0.9238095238095241
+efectos	effects	0.923809523809524
 accidentes	accidents	0.98
 habrá	there will be	0.5179487179487179
 varían	vary	0.825
@@ -4615,7 +4615,7 @@ realizó	made	0.4285714285714286
 generales	general	0.9555555555555556
 especie	species	0.7380952380952381
 fallecidos	deceased	0.5750000000000001
-contagiaron	they infected	0.39005439005439
+contagiaron	they infected	0.39005439005438997
 precio	price	0.9022222222222224
 pocas	few	0.0
 explicó	explained	0.853968253968254
@@ -4772,7 +4772,7 @@ edificio	building	0.4722222222222221
 paquete	package	0.6190476190476191
 ley	law	0.5555555555555555
 optado	opted	0.8755555555555556
-atravesando	going through	0.39005439005439
+atravesando	going through	0.39005439005438997
 representantes	representatives	0.9590476190476188
 antiguos	ancient	0.6011904761904762
 asesinada	murdered	0.4907407407407407
@@ -4898,7 +4898,7 @@ carbón	Coal	0.4722222222222221
 cuarentena	quarantine	0.7523809523809524
 difunden	spread	0.3611111111111112
 juzgamos	we judge	0.5833333333333334
-reducirán	will reduce	0.468013468013468
+reducirán	will reduce	0.46801346801346794
 intrusivos	intrusive	0.9377777777777778
 explique	explain	0.8678571428571429
 publicó	public	0.9714285714285714
@@ -4974,7 +4974,7 @@ lejos	far	0.0
 millones	millions	0.95
 desearían	they wish	0.4074074074074073
 preocupada	worried	0.5738095238095239
-fluviales	river	0.374074074074074
+fluviales	river	0.37407407407407395
 conversando	talking	0.4112554112554112
 poca	little	0.0
 arma	weapon	0.4722222222222221
@@ -4989,7 +4989,7 @@ ecosistema	ecosystem	0.9377777777777778
 muestras	samples	0.6071428571428571
 contactaba	contacted	0.8955555555555555
 transmisión	transmission	0.9484848484848484
-gigante	giant	0.9238095238095241
+gigante	giant	0.923809523809524
 permita	allow	0.0
 iniciativas	initiatives	0.8892255892255891
 participó	He participated	0.8074074074074074
@@ -5010,7 +5010,7 @@ telefónicas	telephone	0.6700336700336701
 diversidad	diversity	0.8955555555555555
 artículos	articles	0.8638888888888888
 externa	external	0.975
-permitiría	would allow	0.396969696969697
+permitiría	would allow	0.39696969696969703
 tras	after	0.0
 tamaño	size	0.0
 estudiante	student	0.8047619047619047
@@ -5342,7 +5342,7 @@ profundas	deep	0.4537037037037037
 llevará	carry	0.4476190476190476
 tripulación	crew	0.446969696969697
 transforme	transform	0.98
-cerebrovasculares	cerebrovascular	0.9764705882352941
+cerebrovasculares	cerebrovascular	0.976470588235294
 entrenarse	train	0.5666666666666668
 carreteras	roads	0.3666666666666667
 piso	floor	0.4833333333333334
@@ -5510,7 +5510,7 @@ compensar	make up for	0.5193602693602694
 aprueba	approves	0.6904761904761904
 afectó	affected	0.8555555555555556
 romper	to break	0.5138888888888888
-conocidos	known	0.374074074074074
+conocidos	known	0.37407407407407395
 polio	polio	1.0
 practicamos	we practice	0.7575757575757575
 codificados	coded	0.8048484848484848
@@ -5990,7 +5990,7 @@ causó	caused	0.8933333333333334
 almuerzo	lunch	0.5499999999999999
 nota	note	0.8833333333333334
 sistema	system	0.8642857142857143
-recopilaron	collected	0.436026936026936
+recopilaron	collected	0.43602693602693604
 acción	action	0.8222222222222222
 carnes	meats	0.5777777777777778
 estos	these	0.4666666666666666
@@ -6021,7 +6021,7 @@ realizan	perform	0.3452380952380951
 socios	partners	0.4305555555555556
 gubernamentales	government	0.8
 posiblemente	possibly	0.825
-despegará	will take off	0.292022792022792
+despegará	will take off	0.29202279202279197
 graduaron	they graduated	0.6984126984126983
 manipulados	manipulated	0.9272727272727274
 verbalizar	verbalize	0.9377777777777778
@@ -6102,7 +6102,7 @@ condado	county	0.6428571428571429
 afronta	face	0.4285714285714286
 introdujo	introduced	0.8955555555555555
 protestar	to protest	0.6830687830687829
-expulsarlas	eject them	0.396969696969697
+expulsarlas	eject them	0.39696969696969703
 células	cells	0.8114285714285714
 serio	I laughed	0.0
 sanitario	sanitary	0.9305555555555556
@@ -6794,7 +6794,7 @@ pisaran	will tread	0.5761904761904763
 excavar	dig	0.0
 sollozando	sobbing	0.5761904761904763
 llamar	to call	0.4365079365079365
-nicaragua	Nicaragua	0.925925925925926
+nicaragua	Nicaragua	0.9259259259259259
 conduciendo	driving	0.455988455988456
 estrado	dais	0.4642857142857142
 ofreciendo	offering	0.7822222222222223
@@ -6921,7 +6921,7 @@ repleto	full	0.4642857142857142
 bife	steak	0.4833333333333334
 xinjiang	xinjiang	1.0
 periódicos	newspapers	0.4222222222222223
-escalones	steps	0.37407407407407395
+escalones	steps	0.374074074074074
 londres	London	0.6428571428571429
 sanguíneo	sanguine	0.9305555555555556
 aliados	allies	0.7968253968253969
@@ -7046,7 +7046,7 @@ correspondiente	correspondent	0.9733333333333334
 colilla	stub	0.0
 ayudarme	help me	0.5119047619047619
 perra	female dog	0.5333333333333333
-interpreto	I interpret	0.906060606060606
+interpreto	I interpret	0.9060606060606059
 desestimada	dismissed	0.7385281385281386
 ancestrycom	ancestrycom	1.0
 descendientes	decendents	0.9384615384615383
@@ -7160,7 +7160,7 @@ enterrar	bury	0.4583333333333333
 concluyó	concluded	0.8833333333333333
 patrullar	patrol	0.8777777777777778
 obituario	obituary	0.9305555555555556
-afirmaría	would affirm	0.46296296296296297
+afirmaría	would affirm	0.462962962962963
 claras	clear	0.8577777777777779
 yacían	lay	0.5
 investigó	investigated	0.9111111111111112
@@ -7223,7 +7223,7 @@ públicamente	publicly	0.6805555555555557
 rogándoles	begging them	0.5166666666666667
 detenida	detained	0.9083333333333332
 anunciada	announced	0.7777777777777778
-abrumador	overwhelming	0.46296296296296297
+abrumador	overwhelming	0.462962962962963
 extremista	extremist	0.98
 probara	will taste	0.4142857142857144
 volantes	frills	0.5277777777777778
@@ -7325,7 +7325,7 @@ homicidio	homicide	0.9305555555555556
 borrado	erased	0.6428571428571429
 solucionar	sort out	0.5499999999999999
 utilizada	used	0.4537037037037037
-atraparon	they caught	0.468013468013468
+atraparon	they caught	0.46801346801346794
 decirle	tell him	0.4900793650793651
 estratégicos	strategic	0.8055555555555555
 manipulación	handling	0.6138888888888889
@@ -7400,21 +7400,21 @@ pared	wall	0.4833333333333334
 supliqué	I begged	0.0
 desteñida	faded	0.6444444444444445
 criticaban	they criticized	0.5555555555555555
-insurgencia	insurgency	0.9436363636363637
+insurgencia	insurgency	0.9436363636363636
 interrogado	interrogated	0.9484848484848484
 subtítulos	Subtitle	0.7083333333333334
 modernos	modern	0.95
 sucedería	would happen	0.5092592592592592
 proveyeron	they provided	0.6032967032967033
 snake	snake	1.0
-crimen	crime	0.9666666666666667
+crimen	crime	0.9666666666666668
 gedmatch	gedmatch	1.0
 afganistán	Afghanistan	0.8007575757575758
 ben	ben	1.0
-diversas	diverse	0.9214285714285715
+diversas	diverse	0.9214285714285716
 caluroso	hot	0.0
 exoneración	exoneration	0.9272727272727274
-inspiró	inspired	0.9214285714285715
+inspiró	inspired	0.9214285714285716
 distribuyó	distributed	0.9054545454545454
 fusiles	rifles	0.7825396825396825
 entrevistado	interviewed	0.672979797979798
@@ -7424,14 +7424,14 @@ hotel	hotel	1.0
 ensangrentada	bloody	0.0
 emprendida	undertaken	0.6222222222222222
 camisetas	Tshirts	0.5886243386243386
-innumerables	innumerable	0.9833333333333333
-hablaron	they talked	0.43813131313131315
+innumerables	innumerable	0.9833333333333332
+hablaron	they talked	0.4381313131313132
 orleans	orleans	1.0
-transcripción	transcription	0.9384615384615385
+transcripción	transcription	0.9384615384615383
 corredor	runner	0.5138888888888888
 empecinada	stubborn	0.40833333333333344
 florida	Florida	0.9047619047619048
-secundaria	high school	0.396969696969697
+secundaria	high school	0.39696969696969703
 padrastro	stepfather	0.6148148148148148
 enteras	whole	0.4476190476190476
 tropel	throng	0.6666666666666666
@@ -7443,10 +7443,10 @@ investigar	research	0.6333333333333333
 seguíamos	we kept	0.4179894179894179
 cortada	cut	0.6507936507936508
 coro	chorus	0.775
-vinculada	linked	0.611111111111111
+vinculada	linked	0.6111111111111109
 detuvieron	stopped	0.3285714285714285
 humillante	humiliating	0.8804545454545455
-repletos	packed	0.36111111111111116
+repletos	packed	0.3611111111111112
 confesaba	confessed	0.8666666666666666
 descubrieron	they discovered	0.6083333333333333
 demandar	to sue	0.0
@@ -7460,16 +7460,16 @@ sorprendidos	surprised	0.7916666666666666
 sinónimo	synonymous	0.6416666666666667
 interpusieron	interposed	0.8962393162393162
 extenso	extensive	0.9047619047619048
-prisión	prison	0.9095238095238095
-monstruo	monster	0.9214285714285715
-amenazarla	threaten her	0.49444444444444446
+prisión	prison	0.9095238095238096
+monstruo	monster	0.9214285714285716
+amenazarla	threaten her	0.4944444444444445
 recompensa	reward	0.5111111111111111
 acompañado	accompanied	0.823030303030303
 inusual	unusual	0.7936507936507936
-dentadura	teeth	0.374074074074074
+dentadura	teeth	0.37407407407407395
 cargar	load	0.4722222222222221
 feliz	happy	0.0
-aliado	ally	0.611111111111111
+aliado	ally	0.6111111111111109
 karachi	karachi	1.0
 ideológicas	ideological	0.9272727272727274
 descarga	download	0.5
@@ -7501,7 +7501,7 @@ beneficia	benefits	0.8833333333333333
 heavey	heavey	1.0
 lazo	tie	0.0
 regresó	Return	0.5396825396825397
-operan	operate	0.9095238095238095
+operan	operate	0.9095238095238096
 amontonarse	pile up	0.0
 pakistaníes	Pakistanis	0.8424242424242424
 acordó	agreed	0.6666666666666666
@@ -7519,14 +7519,14 @@ confesó	confessed	0.9047619047619048
 acusaron	accused	0.6904761904761904
 cpec	cpec	1.0
 víveres	groceries	0.5886243386243386
-geoestratégico	geostrategic	0.9083333333333333
-feligreses	congregation	0.40555555555555567
-separatistas	separatists	0.9833333333333333
+geoestratégico	geostrategic	0.9083333333333332
+feligreses	congregation	0.4055555555555557
+separatistas	separatists	0.9833333333333332
 desesperada	desperate	0.852104377104377
 anterior	previous	0.5833333333333334
 anularon	canceled	0.5833333333333334
-presentación	presentation	0.9333333333333333
-punjab	Punjab	0.888888888888889
+presentación	presentation	0.9333333333333332
+punjab	Punjab	0.8888888888888891
 dudar	doubt	0.6
 golpearon	they beat	0.4814814814814814
 observaba	watched	0.4179894179894179
@@ -7539,3 +7539,289 @@ chagai	chagai	1.0
 coincidencia	coincidence	0.9484848484848484
 modesta	modest	0.9714285714285714
 sonrisa	smile	0.5619047619047619
+equivocada	wrong	0.43333333333333335
+determinan	determine	0.9377777777777778
+servir	to serve	0.7222222222222222
+mecánica	mechanics	0.8523148148148149
+difficile	difficult	0.9111111111111112
+oye	hears	0.5111111111111111
+panamericana	pan american	0.9611111111111109
+agitado	agitated	0.9214285714285716
+agente	agent	0.9666666666666668
+ruskin	ruskin	1.0
+opacidades	opacities	0.8955555555555555
+conclusión	conclusion	0.96
+asesor	adviser	0.6428571428571429
+anglia	anglia	1.0
+distribuyera	distribute	0.93
+internet	Internet	0.9166666666666666
+salvarlo	save him	0.5833333333333334
+animan	cheer up	0.0
+jerga	jargon	0.7300000000000001
+defienden	defend	0.9222222222222222
+vidrio	glass	0.0
+resistente	resistant	0.9377777777777778
+trump	trump	1.0
+repentinamente	suddenly	0.4642857142857142
+perfiles	profiles	0.925
+mms	mms	1.0
+armando	assembling	0.5761904761904763
+colombia	Colombia	0.9166666666666666
+tomografía	tomography	0.88
+ministerio	ministry	0.915
+individuos	individuals	0.9436363636363636
+conectaran	will connect	0.5777777777777778
+aplicada	applied	0.8238095238095238
+renovada	renewed	0.6904761904761904
+testeo	testing	0.8476190476190476
+seguidores	followers	0.5314814814814816
+leer	read	0.5
+chaccour	chaccour	1.0
+cómodamente	comfortably	0.5030303030303029
+regionales	regional	0.96
+tejido	tissue	0.5555555555555555
+reproducido	reproduced	0.9436363636363636
+covid19	covid19	1.0
+tomografías	tomography	0.8672727272727273
+ops	ops	1.0
+causar	cause	0.8933333333333334
+facebook	Facebook	0.9166666666666666
+emitido	issued	0.5396825396825397
+probados	tested	0.4305555555555556
+pedir	ask for	0.4476190476190476
+subyacente	underlying	0.5166666666666667
+aparentemente	apparently	0.796923076923077
+mensajería	Messenger service	0.5313725490196078
+olga	olga	1.0
+móvil	mobile	0.7300000000000001
+pastor	Shepherd	0.5277777777777778
+encubiertos	undercover	0.6359307359307359
+bolsonaro	bolsonaro	1.0
+aprobado	approved	0.8
+jair	jair	1.0
+avanzado	advanced	0.775
+brasileño	Brazilian	0.6296296296296297
+arnaud	arnaud	1.0
+publicitándose	advertising	0.4705627705627706
+farmacológicos	pharmacological	0.7790764790764791
+emergiendo	emerging	0.915
+mediana	median	0.9714285714285714
+expanda	expand	0.9714285714285714
+confirmaba	confirmed	0.8955555555555555
+carlos	Charles	0.7460317460317459
+verificando	verifying	0.882828282828283
+compatible	compatible	1.0
+automedicación	self medication	0.6599206349206349
+distintivos	badges	0.5050505050505051
+rusos	russians	0.8366666666666667
+exista	exist	0.9666666666666667
+vinculación	bonding	0.3225108225108224
+descendencia	offspring	0.41666666666666674
+desestima	dismiss	0.5886243386243386
+foreign	foreign	1.0
+pirámide	pyramid	0.8017857142857143
+anticonceptivos	contraceptives	0.8301587301587302
+mercenarios	mercenaries	0.9636363636363636
+guerras	wars	0.4642857142857142
+contrapartes	counterparts	0.907070707070707
+directos	direct	0.95
+sudán	Sudan	0.9066666666666667
+predicciones	predictions	0.9484848484848484
+putin	putin	1.0
+encuentro	meeting	0.5886243386243386
+alineamiento	alignment	0.8671296296296296
+wagner	wagner	1.0
+despliegue	deployment	0.6666666666666666
+comparan	compare	0.9214285714285715
+maternal	maternal	1.0
+reducirse	reduce	0.9333333333333333
+crimea	crimea	1.0
+brutales	brutal	0.95
+métricas	metric	0.8375000000000001
+kremlin	kremlin	1.0
+torturar	torture	0.9214285714285715
+operado	operated	0.9214285714285715
+paul	Paul	1.0
+extraordinario	extraordinary	0.956043956043956
+jonathan	Jonathan	1.0
+tailandia	thailand	0.8958333333333333
+medioambiente	environment	0.6773226773226773
+multiplicadores	multipliers	0.9284848484848485
+perdiendo	losing	0.5185185185185185
+considero	I consider	0.812962962962963
+subsahariana	sub-saharan	0.9398989898989898
+argumenta	argue	0.9111111111111111
+alcanzará	It will reach	0.41025641025641035
+singapur	Singapore	0.9305555555555555
+combatieron	they fought	0.39393939393939403
+despliegues	deployments	0.6969696969696969
+negable	deniable	0.8134920634920636
+llegará	reach	0.5619047619047619
+ganadería	cattle raising	0.4933862433862435
+reemplazar	replace	0.7663492063492063
+bebés	babies	0.7300000000000001
+fertilidad	fertility	0.8955555555555555
+marcus	marcus	1.0
+prospere	prosper	0.975
+racismo	racism	0.9714285714285714
+ibrahim	ibrahim	1.0
+rusia	Russia	0.9611111111111111
+definir	define	0.9095238095238095
+redoblar	redouble	0.9
+operadores	operators	0.9377777777777778
+entrenadores	trainers	0.7242063492063493
+casera	homemade	0.5277777777777778
+emil	emil	1.0
+trajo	brought	0.5619047619047619
+ucrania	Ukraine	0.7685714285714286
+elegir	to choose	0.0
+privados	private	0.8678571428571429
+rebeldes	rebels	0.95
+carnegie	carnegie	1.0
+ultranacionalistas	ultranationalists	0.9160130718954248
+envejecerá	will get old	0.3944444444444444
+notoriedad	notoriety	0.8955555555555555
+precisas	accurate	0.4722222222222221
+militar	military	0.975
+inmigración	immigration	0.8363636363636364
+mackinnon	mackinnon	1.0
+abubakar	abubakar	1.0
+brindar	to make a toast	0.4031746031746031
+migración	migration	0.9111111111111111
+competencia	competition	0.865909090909091
+cuida	takes care	0.43333333333333335
+elemento	element	0.975
+alineados	aligned	0.888888888888889
+atacantes	attackers	0.8222222222222222
+rechaza	denies	0.4365079365079365
+actúan	they act	0.5277777777777778
+fluctúa	fluctuates	0.8914285714285715
+rusas	russian	0.8866666666666667
+ganó	won	0.5277777777777778
+asombroso	amazing	0.5026455026455027
+sirio	Sirius	0.8933333333333334
+decapitada	decapitated	0.9436363636363637
+balcanes	Balkans	0.9083333333333333
+nacen	are born	0.6583333333333333
+régimen	regime	0.8642857142857143
+pasaremos	we will pass	0.462962962962963
+república	republic	0.9189814814814814
+combate	combat	0.9714285714285714
+sobrevivirán	will survive	0.5
+evaluaciones	evaluations	0.9484848484848484
+siria	Syria	0.88
+batallas	battles	0.8458333333333333
+petrolero	oil	0.4814814814814814
+alineado	aligned	0.9083333333333333
+inherentes	inherent	0.96
+italia	Italy	0.8933333333333334
+civil	civil	1.0
+perpetradores	perpetrators	0.9525641025641025
+cayendo	falling down	0.6349206349206349
+stein	stein	1.0
+lazos	ties	0.4833333333333334
+exitosos	successful	0.5583333333333333
+creará	will create	0.4191919191919191
+libia	Libya	0.9066666666666667
+ubican	locate	0.5555555555555555
+estudiado	studied	0.8412698412698413
+islámico	Islamic	0.9083333333333333
+convierta	convert	0.9555555555555556
+capacitación	training	0.611111111111111
+extensiones	extensions	0.9818181818181818
+españa	Spain	0.7000000000000001
+nigeria	Nigeria	1.0
+aéreo	aerial	0.5888888888888889
+mantenga	keep up	0.42261904761904767
+leve	mild	0.0
+aumentarla	increase it	0.42121212121212115
+invertida	inverted	0.9305555555555555
+anticipar	anticipate	0.9377777777777778
+semioficial	semiofficial	0.9833333333333333
+originada	originated	0.9377777777777778
+exponerse	expose	0.9
+stronski	stronski	1.0
+discute	argue	0.5619047619047619
+vladimir	Vladimir	1.0
+repensar	rethink	0.6011904761904762
+paga	pay	0.7222222222222222
+centroafricana	Central African	0.9128937728937729
+washington	Washington	1.0
+sostiene	holds	0.5499999999999999
+college	college	1.0
+transición	transition	0.92
+reducida	reduced	0.9214285714285715
+reproductiva	reproductive	0.9666666666666666
+descarganuestra	download our	0.44999999999999996
+suiza	Switzerland	0.749090909090909
+desaparece	disappears	0.7771428571428571
+desarrollados	developed	0.58005698005698
+triplique	triple	0.9333333333333333
+deforestación	deforestation	0.9384615384615385
+intentado	tried	0.6648148148148149
+verán	they will see	0.4256410256410257
+university	university	1.0
+atacó	attacked	0.8133333333333332
+selectivos	selective	0.9377777777777778
+híbrido	hybrid	0.8642857142857143
+apoderó	seized	0.373015873015873
+fundamentalmente	fundamentally	0.9067307692307692
+portugal	Portugal	1.0
+marchite	wither	0.5138888888888888
+descrito	described	0.8833333333333333
+áfrica	Africa	0.888888888888889
+sufrirá	will suffer	0.4112554112554112
+considerable	considerable	1.0
+poblado	populated	0.8052910052910053
+cae	falls off	0.4814814814814814
+luchado	fought	0.5396825396825397
+operativos	operative	0.9377777777777778
+documentadas	documented	0.9299999999999999
+torturada	tortured	0.9305555555555555
+adquirido	acquired	0.825
+policy	policy	1.0
+calificarlos	rate them	0.39814814814814814
+reduzca	reduce	0.9095238095238095
+incrementar	increase	0.8737012987012986
+visible	visible	1.0
+contratar	contract	0.9305555555555555
+paz	peace	0.6888888888888888
+progreso	progress	0.95
+puntualizó	pointed out	0.5242424242424243
+jubilarse	retire	0.611111111111111
+murray	murray	1.0
+ihme	ihme	1.0
+lancet	lancet	1.0
+decaiga	decay	0.8742857142857143
+combatientes	fighters	0.5277777777777778
+reclutar	recruit	0.8458333333333333
+requeridos	required	0.9349999999999999
+africana	African	0.975
+anexión	annexation	0.7663492063492063
+paternidad	paternity	0.8955555555555555
+típicas	typical	0.8285714285714287
+moscú	Moscow	0.8933333333333334
+primordial	primordial	1.0
+contratistas	contractors	0.8787878787878788
+realizados	made	0.3999999999999999
+exaliado	exalted	0.8678571428571429
+pensaría	I would think	0.0
+comprometer	compromise	0.9054545454545454
+vollset	vollset	1.0
+gratuito	gratuitous	0.96
+transformará	will transform	0.7976190476190476
+amy	amy	1.0
+eurasia	eurasia	1.0
+semiprivada	semi-private	0.9136363636363637
+prorrusos	pro-russians	0.850925925925926
+proyecta	projects	0.8833333333333334
+específicas	specific	0.7418831168831169
+diplomacia	diplomacy	0.9377777777777778
+ocupará	will occupy	0.0
+decapitar	decapitate	0.9377777777777778
+antecedentes	background	0.49444444444444446
+fecundidad	fertility	0.5444444444444444
+fracasó	failure	0.5238095238095238
+decidirán	will decide	0.5353535353535354
+accediendo	accessing	0.8533333333333333
+esperma	sperm	0.8380952380952381

@@ -1,4 +1,4 @@
-import requests, time, locale, spacy, logging, string, os, textdistance, pickle
+import requests, time, locale, spacy, logging, string, os, textdistance, pickle, random
 
 import numpy as np
 import pandas as pd
@@ -13,11 +13,22 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.pipeline import Pipeline
 
+import genanki
+
 class NewsCrawler():
 
     def __init__(self):
         self.base_url = config.BASE_URL
         self.logger = logging.getLogger(__name__)
+        self.df_url = self.loadUrlDb()
+
+    def loadUrlDb(self):
+        return pd.read_csv(config.PATH_DB_URL, sep='\t', index_col=None)
+
+    def updateUrlDb(self, df_temp):
+        df_merged = self.df_url.append(df_temp)
+        df_merged.to_csv(config.PATH_DB_URL, sep='\t', index=False)
+        self.df_url = df_merged
 
     def getNewsUrls(self): # get news url
         req = requests.get(self.base_url)
@@ -51,10 +62,6 @@ class NewsCrawler():
         text = self.getNewsText(soup)
 
         return {'url':url, 'date':date, 'text': text}
-
-    def getDfPreviousUrls(self):
-        df_url = pd.read_csv(config.PATH_DB_URL, sep='\t', index_col=None)
-        return df_url 
         
 
     def getListNewsData(self):
@@ -64,8 +71,7 @@ class NewsCrawler():
         today = date.today()
         
         # ha venido antes?
-        df_previous_urls = self.getDfPreviousUrls()
-        previous_urls = set(df_previous_urls['url'])
+        previous_urls = set(self.df_url['url'])
         target_urls = list(filter(lambda x: x not in previous_urls, urls))
 
         listNewsData = []
@@ -86,8 +92,7 @@ class NewsCrawler():
             temp.append({'url':newsData['url'], 'crawl_date':today.strftime('%Y-%m-%d')})
 
         df_temp = pd.DataFrame(temp)
-        df_merged = df_previous_urls.append(df_temp)
-        df_merged.to_csv(config.PATH_DB_URL, sep='\t', index=False)
+        self.updateUrlDb(df_temp)
 
         return listNewsData
 
@@ -101,6 +106,9 @@ class WordDistiller():
 
     def __init__(self):
         self.nlp = spacy.load('es_core_news_sm')
+        self.df_word = self.loadWordDb()
+        logging.warning(len(self.df_word))
+        self.df_interesting_word = self.loadInterestingWordDb()
         self.wordDict = self.getWordDict()
 
         # list of tokens for tf-idf
@@ -109,48 +117,66 @@ class WordDistiller():
         # super set of all words
         self.vocab = set([])
 
-        # new words
-        self.newWords = []
-
-        # interesting words
-        self.interestingWords = set()
-
         # for genAnki
         self.palabra2frases = {}
 
-    def getInterestingWords(self, listNewsData):
+    def loadWordDb(self):
+        df = pd.read_csv(config.PATH_DB_WORD, sep='\t', index_col=None)
+        return df
+
+    def updateWordDb(self, df_temp):
+        df_merged = self.df_word.append(df_temp)
+        df_merged.to_csv(config.PATH_DB_WORD, sep='\t', index=False)
+        self.df_word = df_merged
+        self.wordDict = self.getWordDict()
+
+    def loadInterestingWordDb(self):
+        df = pd.read_csv(config.PATH_DB_INTERESTING_WORD, sep='\t', index_col=None)
+        return df 
+
+    def updateInterestingWordDb(self, df_temp):
+        df_merged = self.df_interesting_word.append(df_temp)
+        df_merged.to_csv(config.PATH_DB_INTERESTING_WORD, sep='\t', index=False)
+        self.df_interesting_word = df_merged
+
+    def getWordDict(self):
+        return dict(zip(list(self.df_word['src']),list(self.df_word['tran'])))
+
+    def createAnkiDeck(self, listNewsData):
+        logging.warning('time to get some interesting words')
+        dict_iws = self.getInterestingWords(listNewsData)
+
+        today = date.today()
+        id_deck = random.randrange(1 << 30, 1 << 31)
+        name_deck = today.strftime('%Y-%m-%d')
+        deck = genanki.Deck(id_deck,name_deck)
+
+        for dict_iw in dict_iws:
+            deck.add_note(genanki.Note(model=config.MODEL, fields=[dict_iw['src'], dict_iw['tran'], dict_iw['sentence']]))
         
+        filename = f"{config.PATH_DECKS_FOLDER}{name_deck}.apkg"
+        logging.warning(filename)
+        genanki.Package(deck).write_to_file(filename)
+        return
+
+    def getInterestingWords(self, listNewsData):
         # tokenize to get vocab, listTokens, palabra2frases
         self.tokenizeNewsData(listNewsData)
 
-        # get new word
-        logging.warning("getting new word")
-        self.getNewWords()
-        logging.warning(len(self.newWords))
-
-        logging.warning("length of word dict is {}".format(len(self.wordDict)))
-        # update WordDict
-        self.updateWordDict()
-        logging.warning("length of word dict is {}".format(len(self.wordDict)))
-
-        df_words = pd.read_csv(config.PATH_DB_WORD, sep='\t', index_col=None)
+        df_newWords = self.getDfNewWords()
         # get df_newWord
-        if len(self.newWords) > 0:
+        if df_newWords is not None:
             # update df_words
             df_newWords = self.getDfNewWords()
-            df_merged = df_words.append(df_newWords)
+            self.updateWordDb(df_newWords)
 
-            ### update the master db "DB_WORD"
-            df_merged.to_csv(config.PATH_DB_WORD, sep='\t', index=False)
-        else: # if no new word (eventually it will happen)
-            df_newWords = df_words
 
         # get cognate
         logging.warning("getting cognate")
-
-        scores= df_words.score
+        scores= self.df_word.score
         cognate_threshold = np.percentile(scores,config.COGNATE_PERCENTILE)
-        cognates = df_newWords.loc[df_newWords['score'] >= cognate_threshold]['src'].values
+        idx_cognate = self.df_word['score'] >= cognate_threshold
+        cognates = self.df_word.loc[idx_cognate]['src'].values
         logging.warning(len(cognates))
 
         # creating tf idf pipeline
@@ -161,14 +187,27 @@ class WordDistiller():
         feature_names = np.array(pipe['count'].get_feature_names())
         tf_idf_vector=pipe['tfidf'].transform(pipe['count'].transform(corpus))
 
-
         # get interesting words
         num_row, _ = tf_idf_vector.shape
+
+        interestingWords = set()
 
         for idx in range(num_row):
             arr = tf_idf_vector.getrow(idx).toarray()
             idxs = arr[0].argsort()[-config.NUM_INTERESTING_WORDS:][::-1]
-            self.interestingWords.update(set(feature_names[idxs]))
+            interestingWords.update(set(feature_names[idxs]))
+
+        #Update InterestingWordDb
+        list_dict = []
+        for iw in interestingWords:
+            sentence = random.choice(self.palabra2frases.get(iw, None))
+            a_dict = {'src':iw,'tran':self.wordDict[iw],'sentence':sentence}
+            list_dict.append(a_dict)
+
+        df_temp = pd.DataFrame(list_dict)
+        self.updateInterestingWordDb(df_temp)
+
+        return list_dict
 
     ### 1. let's tokenize ###
     def is_valid_token(self,token):
@@ -195,7 +234,9 @@ class WordDistiller():
         for span in doc.sents:
             sentence = span.text
             if self.is_valid_sentence(sentence):
-                for token in span:
+                cleanText = sentence.translate(str.maketrans('', '', string.punctuation))
+                doc_sentence = self.nlp(cleanText)
+                for token in doc_sentence:
                     if self.is_valid_token(token):
                         # add to words
                         t = token.text.lower()
@@ -209,69 +250,57 @@ class WordDistiller():
 
     def tokenizeNewsData(self, listNewsData):
         for newData in listNewsData:
-            text = newData['text'].translate(str.maketrans('', '', string.punctuation))
+            # text = newData['text'].translate(str.maketrans('', '', string.punctuation))
+            text = newData['text']
             tokens =self.getTokenizeText(text)
             self.listTokens.append(tokens)
             self.vocab.update(set(tokens))
 
     ### 2. Process new words ###
-
-    def getWordDict(self):
-        df_word = pd.read_csv(config.PATH_DB_WORD, sep='\t', index_col=None)
-        return dict(zip(list(df_word['src']),list(df_word['tran'])))
-
     def chunks(self, lst, n):
         for i in range(0, len(lst), n):
             yield lst[i:i + n]
 
-    def getNewWords(self):
+    def getDfNewWords(self):
+        newWords = []
         for v in self.vocab:
             if v not in self.wordDict.keys():
-                self.newWords.append(v)
-
-    def updateWordDict(self):
-        if self.newWords: # if newWord is not empty
-            # initialize google translation service
+                newWords.append(v)
+        
+        # if there are new words using google translate api
+        if newWords:
             client = translate.TranslationServiceClient()
-            parent = client.location_path(config_google.PROJECT_ID, 'global')
-            
+            parent = client.location_path(config_google.PROJECT_ID,'global')
+
             newWordsDict = {}
-            for c in self.chunks(self.newWords, 1024):        
-                response = client.translate_text(
+            for c in self.chunks(newWords, 1024):
+                r = client.translate_text(
                     contents=c,
-                    target_language_code='en',
-                    source_language_code='es',
-                    parent=parent,
+                    target_language_code = 'en',
+                    source_language_code = 'es',
+                    parent = parent,
                 )
 
-                newWordsDict.update(dict(zip(c,[t.translated_text for t in response.translations])))
-            
-            self.wordDict.update(newWordsDict)
+                newWordsDict.update(dict(zip(c,[t.translated_text for t in r.translations])))
 
-    def getDfNewWords(self):
-        trans = [self.wordDict[w] for w in self.newWords]
-        listDict = []
-        for w, t in zip(self.newWords, trans):
-            sim = textdistance.jaro_winkler.normalized_similarity(w,t)
-            row ={'src':w, 'tran': t, 'score':sim}
-            listDict.append(row)
-        df_newWords = pd.DataFrame(listDict)
-        return df_newWords
+            listDict = []
+            for s, t in zip(list(newWordsDict.keys()), list(newWordsDict.values())):
+                sim = textdistance.jaro_winkler.normalized_similarity(s.lower(),t.lower())
+                row = {'src':s, 'tran':t, 'score':sim} 
+                listDict.append(row)
+            df_newWords = pd.DataFrame(listDict)
+            return df_newWords
+        else: 
+            return None
 
     def get_tf_idf_pipeline(self, stop_words = None, corpus = None, new_words_only=False):
         if new_words_only:
-            df_previous_words = pd.read_csv(config.PATH_DB_INTERESTING_WORD, sep='\t', index_col=None)
-            old_words = df_previous_words['src'].values
+            df_previous_iws = self.df_interesting_word
+            old_words = df_previous_iws['src'].values
             stop_words = np.concatenate([stop_words,old_words])
 
         pipe = Pipeline([('count', CountVectorizer(stop_words=list(stop_words))),('tfidf', TfidfTransformer(smooth_idf=True,use_idf=True))]).fit(corpus)
         return pipe
-
-
-# class AnkiPackager(object):
-    # 1. create apkg
-    # 2. update interesting word db
-
 
 
 # initialize google credential
@@ -289,14 +318,15 @@ del nc
 # with open('newsData.pk','wb') as f:
 #     pickle.dump(listNewsData,f)
 
-
-
 # with open('newsData.pk','rb') as f:
 #     listNewsData = pickle.load(f)
 
 # distilling interesting words
-# wd = WordDistiller()
-# wd.getInterestingWords([listNewsData[0],listNewsData[1]])
+
+print(len(listNewsData))
+
+wd = WordDistiller()
+wd.createAnkiDeck(listNewsData)
 
 # print(wd.interestingWords)
 # print(wd.newWords)

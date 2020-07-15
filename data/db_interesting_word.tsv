@@ -1,36 +1,40 @@
-src	tran	score
-meteorología	meteorology	0.9484848484848484
-llaga	sore	0.0
-ella	she	0.0
-base	base	1.0
-almuerzos	lunches	0.671957671957672
-empleos	jobs	0.0
-llevado	led	0.6507936507936508
-llegada	arrival	0.4285714285714286
-sentada	sitting	0.5238095238095238
-térmico	thermal	0.6190476190476191
-previstas	planned	0.5026455026455027
-bolsas	bags	0.6111111111111109
-ecuatorial	equatorial	0.94
-responsable	responsable	1.0
-motora	motorboat	0.9333333333333332
-sísmico	seismic	0.7685714285714286
-preguntaba	asked	0.43333333333333335
-situaciones	situations	0.9436363636363636
-directa	direct	0.9714285714285714
-superó	surpassed	0.6203703703703703
-capitales	capitals	0.9777777777777776
-lunar	lunar	1.0
-suavicen	soften	0.625
-aproximadamente	approximately	0.8229059829059829
-ningún	no	0.5555555555555555
-esencial	essential	0.9074074074074072
-paracaídas	parachute	0.6851851851851851
-decenas	tens	0.5952380952380952
-siguen	continue	0.5555555555555555
-informes	reports	0.6011904761904762
-recalca	stresses	0.5119047619047619
-alinearon	aligned	0.8296296296296296
-presidenciales	presidential	0.9404761904761904
-confirme	confirm	0.975
-deuda	debt	0.6333333333333333
+src	tran	sentence
+grupos	groups	La BLA -organización detrás del ataque contra la Bolsa de Valores de Karachi el 29 de junio- es solamente uno de los seis grupos separatistas armados de Baluchistán y que previamente han ejecutado ataques en Pakistán.
+asesinato	murder	Christopher Tapp se encontraba cerca del río cuando supo del asesinato.
+el	he	El Departamento de Policía de Idaho Falls seguía la teoría de que más de una persona estaba vinculada con el asesinato de Angie Dodge.
+angie	Angie	Angie Dodge no había llegado a cumplir su turno en el trabajo y, después de que no contestara sus llamadas, se apresuraron a ver si estaba bien.
+carol	Carol	Carol Dodge, la madre de la víctima, miró fijamente a Tapp todo el tiempo.  
+provincia	Province	Pero ¿qué tiene esta provincia qué se ha convertido en un punto estratégico para China?
+idaho	Idaho	El rio Snake, flanqueado por dos senderos prístinos, serpentea por el centro de la ciudad antes de continuar por la extensa llanura del sur de Idaho.
+mundo	world	Fue allí, en bajo su extenso desierto, donde hace más de dos décadas Islamabad llevó a cabo los seis ensayos que convirtieron al país en el séptimo del mundo en desarrollar y probar con éxito las armas nucleares.  
+dijo	said	"Yo dije: simplemente apártese y míreme hacerlo"", dijo."
+china	China	Pero el proyecto no solo beneficia a China: Pakistán necesita desesperadamente esta inversión.  
+pakistán	Pakistan	El corredor económico irá desde la Región Autónoma Uigur de Xinjiang, en el noroeste de China, al puerto de Gawadar en Baluchistán, en el suroeste de Pakistán, recorriendo así unos 3.000km.
+puerto	port	"""Pakistán tiene solo un gran puerto, el puerto de Karachi, que fue construido durante el período colonial hace más de 100 años"", agrega."
+baluchistán	baluchistan	Pakistán ha ejecutado proyectos gasíferos para explotar el gas de Baluchistán, por ejemplo.
+proyectos	Projects	"""Otros grupos sienten que el gobierno federal que está dominado por Punjab -la provincia más poblada del país y la segunda más grande por superficie después de Baluchistán- no les permite a los baluchis tener una voz en los proyectos"".   "
+policía	policeman	En el verano de 2017, el Departamento de Policía de Idaho Falls recibió un nuevo jefe, Bryce Johnson.
+pero	but	"""Pero me di cuenta de que era sincera."
+adn	dna	El método implica comparar la evidencia de ADN que se encuentra en la escena del crimen con el ADN de personas que entregan ADN a sitios web comerciales de genealogía como Ancestry.com.
+después	after	Después, Hobbs y Sargis fueron liberados, pero Tapp, muy a su sorpresa y a pesar de que no había evidencia física vinculándolo a la escena del crimen, fue acusado de asesinato y violación.
+caso	case	"""Habíamos hablado con el laboratorio estatal de Idaho y ellos entendían la importancia de este caso para la comunidad"", comentó Johnson."
+grupo	group	Para Amy Mackinnon, investigadora del portal de análisis Foreign Policy con sede en Washington, el Grupo Wagner es difícil de definir y de anticipar las operaciones del grupo precisamente por esas características.
+siria	Syria	Su marca también está perdiendo parte del brillo que pudo haber adquirido en las batallas contra el llamado Estado Islámico en Siria.
+millones	millions	Se estima que la población en Italia sufrirá una caída similar: de 61 millones a 28 millones a lo largo de un período similar.  
+población	population	Se espera que la población de Japón decaiga de su punto más alto en 2017, con 128 millones, a menos de 53 millones para fin de siglo.  
+estudio	study	El estudio dice que Nigeria se transformará en el segundo país más poblado del mundo con una población de 791 millones.   
+personas	persons	"""Eso sería cierto, excepto por la pirámide de edad invertida (más personas mayores que jóvenes) y todas las consecuencias negativas de una pirámide de edad invertida"", explica Murray.  "
+mujeres	women	En cambio, este fenómeno está impulsado por el hecho de que más mujeres están accediendo a la educación, al trabajo, así como por el mayor acceso a métodos anticonceptivos, que hace que las mujeres puedan elegir tener menos niños.  
+militar	military	"Los periodistas y analistas que le han seguido el rastro lo describen como una red de mercenarios alineados con los intereses del gobierno de Vladimir Putin a la que llegan a describir como una especie de fuerza militar ""no oficial"" a favor de Rusia."
+seguridad	security	Los operadores de Wagner han estado también en Libia y han tenido un rol más tradicional de capacitación y de o seguridad en Sudán y la República Centroafricana.
+países	countries	 Esta es la conclusión de un equipo de investigadores del Instituto de Métricas y Evaluaciones de Salud (IHME) de la Universidad de Washington, que publicó un estudio esta semana en la revista The Lancet,  La caída en los índices de fertilidad significa que casi todos los países podrían ver sus poblaciones reducidas para fines de siglo.  
+niños	children	La tasa de fertilidad -el número promedio de niños que da a luz una mujer- está cayendo.    
+intereses	interests	El alineamiento con la política de Putin Tanto Mackinnon como Stronski coinciden en que es visible el alineamiento entre el Grupo Wagner y los intereses del gobierno de Vladimir Putin.
+mercenarios	mercenaries	"Ellos pueden contratar diferentes mercenarios y reclutar combatientes"", señala la experta a BBC Mundo.  "
+número	number	La población también envejecerá de forma dramática, con casi el mismo número de personas que llegan a los 80 como de personas que nacen.  
+libia	Libya	El desempeño de Wagner en Libia ha sido mucho menos exitoso, ya que Rusia finalmente tuvo que volver a desplegar parte de su poder aéreo desde Siria para reforzar su posición.
+gobierno	government	De acuerdo al servicio ruso de la BBC, el Kremlin rechaza la existencia de esta organización y niega que el gobierno de Putin pueda tener cualquier vinculación con Wagner.
+ruso	Russian	De acuerdo al servicio ruso de la BBC, el Kremlin rechaza la existencia de esta organización y niega que el gobierno de Putin pueda tener cualquier vinculación con Wagner.
+rusia	Russia	"Los periodistas y analistas que le han seguido el rastro lo describen como una red de mercenarios alineados con los intereses del gobierno de Vladimir Putin a la que llegan a describir como una especie de fuerza militar ""no oficial"" a favor de Rusia."
+fertilidad	fertility	Suiza logró incrementar su tasa de fertilidad de 1,7 a 1,9, pero otros países que han invertido un esfuerzo significativo para aumentarla no lo han logrado.
+tasa	rate	Distintos países han recurrido a la inmigración para aumentar sus poblaciones y compensar la caída en la tasa de fecundidad.  
