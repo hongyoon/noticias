@@ -1,10 +1,9 @@
-import requests, time, locale, spacy, logging, string, os, textdistance, pickle, random
+import requests, locale, spacy, logging, string, os, textdistance, pickle, random, datetime
 
 import numpy as np
 import pandas as pd
 
 from bs4 import BeautifulSoup
-from datetime import date
 from google.cloud import translate
 
 import config, config_google
@@ -24,6 +23,7 @@ class NewsCrawler():
         self.base_url = config.BASE_URL
         self.logger = logging.getLogger(__name__)
         self.df_url = self.loadUrlDb()
+        self.today = datetime.date.today()
 
     def loadUrlDb(self):
         return pd.read_csv(config.PATH_DB_URL, sep='\t', index_col=None)
@@ -61,17 +61,21 @@ class NewsCrawler():
         fetcha = soup.find('div', attrs={'class':"date date--v2"})
         if not fetcha:
             fetcha = soup.find('time') 
-        date = time.strptime(fetcha.getText(), "%d %B %Y")
+        date_obj = datetime.datetime.strptime(fetcha.getText(), "%d %B %Y")
         text = self.getNewsText(soup)
 
-        return {'url':url, 'date':date, 'text': text}
+        return {'url':url, 'date':date_obj.strftime('%Y-%m-%d'), 'text': text}
+
+    def saveRawData(self, listNewsData):
+        str_today = self.today.strftime('%Y-%m-%d')
+        df_raw_data = pd.DataFrame(listNewsData)
+        df_raw_data.to_csv(config.PATH_RAW_DATA_FOLDER + "{}.tsv".format(str_today) , sep='\t', index=False)
         
 
     def getListNewsData(self):
         # print list news data; update db_url
         newsData = []
         urls = self.getNewsUrls()
-        today = date.today()
         
         # ha venido antes?
         previous_urls = set(self.df_url['url'])
@@ -85,17 +89,19 @@ class NewsCrawler():
                 logging.warning(url)
                 listNewsData.append(newsData)
 
-                ################## REMOVE THIS IN PRODUCTION
-                # if len(listNewsData) == 2:
-                    # break
+                ################# REMOVE THIS IN PRODUCTION
+                #if len(listNewsData) == 2:
+                #    break
         
         
         temp = []
+        str_today = self.today.strftime('%Y-%m-%d')
         for newsData in listNewsData:
-            temp.append({'url':newsData['url'], 'crawl_date':today.strftime('%Y-%m-%d')})
+            temp.append({'url':newsData['url'], 'crawl_date':str_today})
 
         df_temp = pd.DataFrame(temp)
         self.updateUrlDb(df_temp)
+        self.saveRawData(listNewsData)
 
         return listNewsData
 
@@ -149,9 +155,8 @@ class WordDistiller():
         logging.warning('time to get some interesting words')
         dict_iws = self.getInterestingWords(listNewsData)
 
-        today = date.today()
         id_deck = random.randrange(1 << 30, 1 << 31)
-        name_deck = today.strftime('%Y-%m-%d')
+        name_deck = self.today.strftime('%Y-%m-%d')
         deck = genanki.Deck(id_deck,name_deck)
 
         for dict_iw in dict_iws:
@@ -307,7 +312,6 @@ class WordDistiller():
         pipe = Pipeline([('count', CountVectorizer(stop_words=list(stop_words))),('tfidf', TfidfTransformer(smooth_idf=True,use_idf=True))]).fit(corpus)
         return pipe
 
-
 def uploadAnkiFile(filepath):
     GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = "config\\drive-client-secrets.json"
     g_login = GoogleAuth()
@@ -317,7 +321,6 @@ def uploadAnkiFile(filepath):
     file_drive = drive.CreateFile({'parents':[{'id': config_google.DRIVE_ANKI_FOLDER_ID}], 'title':os.path.basename(filepath) })  
     file_drive.SetContentFile(filepath) 
     file_drive.Upload()
-
     return
 
 
@@ -326,12 +329,12 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = config_google.PATH_CREDENTIAL
 os.environ['PROJECT_ID'] = config_google.PROJECT_ID
 
 # set locale to Spanish
-# locale.setlocale(locale.LC_TIME, config.LOCALE_ES)
+locale.setlocale(locale.LC_TIME, config.LOCALE_ES)
 
 # # crawling
-# nc = NewsCrawler()
-# listNewsData = nc.getListNewsData()
-# del nc
+nc = NewsCrawler()
+listNewsData = nc.getListNewsData()
+del nc
 
 # with open('newsData.pk','wb') as f:
 #     pickle.dump(listNewsData,f)
@@ -340,13 +343,11 @@ os.environ['PROJECT_ID'] = config_google.PROJECT_ID
 #     listNewsData = pickle.load(f)
 
 # distilling interesting words
-
-# print(len(listNewsData))
-
 # wd = WordDistiller()
 # wd.createAnkiDeck(listNewsData)
+# del wd
 
-uploadAnkiFile("decks\\2020-07-16.apkg")
+# uploadAnkiFile("decks\\2020-07-16.apkg")
 
 
 

@@ -9,6 +9,7 @@ PATH_DB_URL = "data\\db_url.tsv"
 PATH_DB_WORD = "data\\db_word.tsv"
 PATH_DB_INTERESTING_WORD = "data\\db_interesting_word.tsv"
 PATH_DECKS_FOLDER = "decks\\"
+PATH_RAW_DATA_FOLDER = "raw_data\\"
 
 ### preprocessor
 STOP_SENTENCES = set([
