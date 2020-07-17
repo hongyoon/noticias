@@ -1,3 +1,4 @@
 jupyter/
 config/
 config_google.py
+client_secrets.json

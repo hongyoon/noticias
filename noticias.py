@@ -15,6 +15,9 @@ from sklearn.pipeline import Pipeline
 
 import genanki
 
+from pydrive.auth import GoogleAuth
+from pydrive.drive import GoogleDrive
+
 class NewsCrawler():
 
     def __init__(self):
@@ -83,8 +86,8 @@ class NewsCrawler():
                 listNewsData.append(newsData)
 
                 ################## REMOVE THIS IN PRODUCTION
-                if len(listNewsData) == 2:
-                    break
+                # if len(listNewsData) == 2:
+                    # break
         
         
         temp = []
@@ -157,7 +160,8 @@ class WordDistiller():
         filename = f"{config.PATH_DECKS_FOLDER}{name_deck}.apkg"
         logging.warning(filename)
         genanki.Package(deck).write_to_file(filename)
-        return
+
+        return filename
 
     def getInterestingWords(self, listNewsData):
         # tokenize to get vocab, listTokens, palabra2frases
@@ -183,6 +187,7 @@ class WordDistiller():
         logging.warning("making tf-idf")
         corpus = [' '.join(token) for token in self.listTokens]
         pipe = self.get_tf_idf_pipeline(stop_words= cognates, corpus=corpus, new_words_only = config.NEW_WORDS_ONLY)
+        pipe
 
         feature_names = np.array(pipe['count'].get_feature_names())
         tf_idf_vector=pipe['tfidf'].transform(pipe['count'].transform(corpus))
@@ -303,17 +308,30 @@ class WordDistiller():
         return pipe
 
 
+def uploadAnkiFile(filepath):
+    GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = "config\\drive-client-secrets.json"
+    g_login = GoogleAuth()
+    g_login.LocalWebserverAuth()
+    drive = GoogleDrive(g_login)
+    
+    file_drive = drive.CreateFile({'parents':[{'id': config_google.DRIVE_ANKI_FOLDER_ID}], 'title':os.path.basename(filepath) })  
+    file_drive.SetContentFile(filepath) 
+    file_drive.Upload()
+
+    return
+
+
 # initialize google credential
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = config_google.PATH_CREDENTIAL
 os.environ['PROJECT_ID'] = config_google.PROJECT_ID
 
 # set locale to Spanish
-locale.setlocale(locale.LC_TIME, config.LOCALE_ES)
+# locale.setlocale(locale.LC_TIME, config.LOCALE_ES)
 
-# crawling
-nc = NewsCrawler()
-listNewsData = nc.getListNewsData()
-del nc
+# # crawling
+# nc = NewsCrawler()
+# listNewsData = nc.getListNewsData()
+# del nc
 
 # with open('newsData.pk','wb') as f:
 #     pickle.dump(listNewsData,f)
@@ -323,14 +341,12 @@ del nc
 
 # distilling interesting words
 
-print(len(listNewsData))
+# print(len(listNewsData))
 
-wd = WordDistiller()
-wd.createAnkiDeck(listNewsData)
+# wd = WordDistiller()
+# wd.createAnkiDeck(listNewsData)
 
-# print(wd.interestingWords)
-# print(wd.newWords)
-
+uploadAnkiFile("decks\\2020-07-16.apkg")
 
 
 
