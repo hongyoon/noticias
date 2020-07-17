@@ -119,6 +119,7 @@ class WordDistiller():
         logging.warning(len(self.df_word))
         self.df_interesting_word = self.loadInterestingWordDb()
         self.wordDict = self.getWordDict()
+        self.today = datetime.date.today()
 
         # list of tokens for tf-idf
         self.listTokens = []
@@ -332,20 +333,20 @@ os.environ['PROJECT_ID'] = config_google.PROJECT_ID
 locale.setlocale(locale.LC_TIME, config.LOCALE_ES)
 
 # # crawling
-nc = NewsCrawler()
-listNewsData = nc.getListNewsData()
-del nc
+#nc = NewsCrawler()
+#listNewsData = nc.getListNewsData()
+#del nc
 
 # with open('newsData.pk','wb') as f:
 #     pickle.dump(listNewsData,f)
 
-# with open('newsData.pk','rb') as f:
-#     listNewsData = pickle.load(f)
+with open('newsData.pk','rb') as f:
+    listNewsData = pickle.load(f)
 
-# distilling interesting words
-# wd = WordDistiller()
-# wd.createAnkiDeck(listNewsData)
-# del wd
+#distilling interesting words
+wd = WordDistiller()
+wd.createAnkiDeck(listNewsData)
+del wd
 
 # uploadAnkiFile("decks\\2020-07-16.apkg")
 
