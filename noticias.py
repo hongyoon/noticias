@@ -1,4 +1,5 @@
-import requests, locale, spacy, logging, string, os, textdistance, pickle, random, datetime
+import requests, logging, string, os, pickle, random, datetime
+import locale, spacy, string, textdistance, unicodedata
 
 import numpy as np
 import pandas as pd
@@ -180,7 +181,6 @@ class WordDistiller():
             df_newWords = self.getDfNewWords()
             self.updateWordDb(df_newWords)
 
-
         # get cognate
         logging.warning("getting cognate")
         scores= self.df_word.score
@@ -192,7 +192,7 @@ class WordDistiller():
         # creating tf idf pipeline
         logging.warning("making tf-idf")
         corpus = [' '.join(token) for token in self.listTokens]
-        pipe = self.get_tf_idf_pipeline(stop_words= cognates, corpus=corpus, new_words_only = config.NEW_WORDS_ONLY)
+        pipe = self.get_tf_idf_pipeline(stop_words= cognates, corpus=corpus, new_words_only=config.NEW_WORDS_ONLY)
         pipe
 
         feature_names = np.array(pipe['count'].get_feature_names())
@@ -212,7 +212,7 @@ class WordDistiller():
         list_dict = []
         for iw in interestingWords:
             sentence = random.choice(self.palabra2frases.get(iw, None))
-            a_dict = {'src':iw,'tran':self.wordDict[iw],'sentence':sentence}
+            a_dict = {'src':iw,'tran':self.wordDict[iw], 'date':self.today.strftime('%Y-%m-%d'), 'sentence':sentence}
             list_dict.append(a_dict)
 
         df_temp = pd.DataFrame(list_dict)
@@ -272,6 +272,10 @@ class WordDistiller():
         for i in range(0, len(lst), n):
             yield lst[i:i + n]
 
+    def remove_accents(self,input_str):
+        nfkd_form = unicodedata.normalize('NFKD', input_str)
+        return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
+
     def getDfNewWords(self):
         newWords = []
         for v in self.vocab:
@@ -296,7 +300,8 @@ class WordDistiller():
 
             listDict = []
             for s, t in zip(list(newWordsDict.keys()), list(newWordsDict.values())):
-                sim = textdistance.jaro_winkler.normalized_similarity(s.lower(),t.lower())
+
+                sim = textdistance.jaro_winkler.normalized_similarity(self.remove_accents(s).lower(),t.lower())
                 row = {'src':s, 'tran':t, 'score':sim} 
                 listDict.append(row)
             df_newWords = pd.DataFrame(listDict)
@@ -333,25 +338,20 @@ os.environ['PROJECT_ID'] = config_google.PROJECT_ID
 locale.setlocale(locale.LC_TIME, config.LOCALE_ES)
 
 # # crawling
-#nc = NewsCrawler()
-#listNewsData = nc.getListNewsData()
-#del nc
+nc = NewsCrawler()
+listNewsData = nc.getListNewsData()
+del nc
 
 # with open('newsData.pk','wb') as f:
 #     pickle.dump(listNewsData,f)
 
-with open('newsData.pk','rb') as f:
-    listNewsData = pickle.load(f)
+# with open('newsData.pk','rb') as f:
+#     listNewsData = pickle.load(f)
 
 #distilling interesting words
 wd = WordDistiller()
-wd.createAnkiDeck(listNewsData)
+filename = wd.createAnkiDeck(listNewsData)
 del wd
 
-# uploadAnkiFile("decks\\2020-07-16.apkg")
-
-
-
-    
-
-    
+uploadAnkiFile(filename)
+print(f'{filename} has been uploaded')
