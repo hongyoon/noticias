@@ -41,7 +41,10 @@ MODEL = genanki.Model(
   templates=[
     {
       'name': 'Standard',
-      'qfmt': '<div style="text-align: center;"><span style="font-size: 20px; "text-align:center;">{{Word}}</span></div>',
-      'afmt': '{{FrontSide}}<hr id="answer"><div style="text-align: center; ><span style="font-size: 20px; "text-align: center;">{{Meaning}}</span></div><br>{{Sentence}}',
+      'qfmt': '''<div style="text-align: center; font-size: 22px">{{Word}}</div>''',
+      'afmt': '''<div style ="text-weight:bold;">{{FrontSide}}</div><hr id="answer"> 
+                 <div style="text-align: center;  font-size: 22px">{{Meaning}}</div>
+                 <br>
+                 <div style="font-size: 18px">{{Sentence}}</div>''',
     },
   ])
